@@ -7,10 +7,10 @@
 <div>
 <h3 style="font-size: 2.2rem; letter-spacing: 1px;">IR Blaster Remote</h3>
 <p style="font-size: 1.15rem; font-weight: 500;">
-    <strong>Universal IR Remote for Android</strong><br>
-    <strong>IR Blaster</strong> is an Android application for creating, managing, and transmitting infrared (IR) signals through multiple output methods, including a device’s built-in IR emitter, supported USB IR dongles, and audio-to-IR LED adapters.
+    ing, and transmitting infrared (IR) signals through multiple output methods, including a device’s built-in IR emitter, supported USB IR dongles, and audio-to-IR LED adapters.
 
-The app enables users to build fully custom remotes, discover unknown IR codes through guided brute-force tools, and seamlessly manage IR configurations. It also supports importing IR signals from Flipper Zero `.ir` files, **IRPLUS `.irplus` / XML files**, and **LIRC `.conf` / `.cfg` / `.lirc` files**, making it easy to reuse and adapt existing IR libraries across devices.
+The app enables users to build fully custom remotes, discover unknown IR codes through guided brute-force tools, and seamlessly manage IR configurations. It also supports importing IR signals from Flipper Zero `.ir` files, **IRPLUS `.irplus` / XML files**, and **LIRC `.conf` / `.cfg` / `.lirc` files**, making it
+ easy to reuse and adapt existing IR libraries across devices.
 
 It also includes a GitHub Store for browsing compatible IR files directly from GitHub repositories and importing them into the app without manually downloading and moving files first. For supported USB learning dongles, Learning Mode can capture a signal from a physical remote, preview it, and save it into a new or existing remote.
 
@@ -168,7 +168,7 @@ The Signal Tester is designed to help discover unknown working IR commands.
 | Protocol | Input format | Carrier (Hz) | Frame structure / timing summary | Notes |
 |---|---|---:|---|---|
 | Raw Signal | pattern (µs), optional frequencyHz | 10,000–100,000 (default 38,000) | Alternating mark/space durations starting with mark; tokens can be decimal/hex; comments supported; auto-append 45ms trailing space if odd length | Max 4096 entries, positive durations only; strict parsing and bounds |
-| Denon | 4 hex | 38,000 | Build 13 bits = nib0(4)+nib1(4)+nib2(4)+nib3(1); duplicate to 26; encode bits with mark=280, space 860/1720; sequence = first13 + pre (c+b+[280, 43560]) + second13 + post (b+c+[280, 43560]) | Strict 4 hex digits |
+| Denon | 4 hex  860/1720; sequence = first13 + pre (c+b+[280, 43560]) + second13 + post (b+c+[280, 43560]) | Strict 4 hex digits |
 | F12_relaxed | hex → first 12 bits | 38,000 | Map 0 → [422,1266], 1 → [1266,422]; adjust last slot to make total 54,000µs | Uses full hex string but only first 12 bits |
 | JVC | 4 hex (16 bits LSB-first) | 38,000 | Preamble 8400/4200; each bit mark=525, space=525 (0) or 1575 (1); trailing 525 + 21000 gap | Strict 4 hex digits |
 | NEC | up to 8 hex (left-padded) → 32 bits | 38,222 | Preamble 9000/4500; bit mark=562 + space 562 (0) or 1687 (1); trailing mark 562; pad final gap to 108,800µs | Accepts 1–8 hex; normalized to 8 |
